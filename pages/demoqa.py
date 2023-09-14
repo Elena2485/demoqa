@@ -1,7 +1,6 @@
 from selenium.common.exceptions import NoSuchElementException
 from pages.base_page import BasePage
 
-
 class DemoQa(BasePage):
     def exist_icon(self):
 

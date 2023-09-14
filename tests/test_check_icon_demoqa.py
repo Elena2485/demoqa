@@ -1,7 +1,6 @@
 from conftest import browser
 ##from selenium.webdriver.common.by import By
 
-
 from pages.demoqa import DemoQa
 def test_icon_exist(browser):
     demo_qa_page = DemoQa(browser)
