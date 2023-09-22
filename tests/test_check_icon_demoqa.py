@@ -1,13 +1,13 @@
 
 #from selenium.webdriver.common.by import By
 
-from pages.demoqa import Demoqa
+from pages.demoqa_page import Demoqa
 
 def test_icon_exist(browser):
  #   browser.get('https://demoqa.com/')
     demo_qa_page = Demoqa(browser)
     demo_qa_page.visit()
-    demo_qa_page.click_on_the_icon()
+    demo_qa_page.icon.click()
     assert demo_qa_page.equal_url()
     assert demo_qa_page.exist_icon()
 

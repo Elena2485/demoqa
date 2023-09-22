@@ -7,7 +7,7 @@ def test_navigation(browser):
     elements_page = ElementsPage()
     demo_qa_page.visit()
     demo_qa_page.btn_elements.clik()
-    demoqa_qa_page.refresh()
+    demo_qa_page.refresh()
 
  #   browser.back()
  #   browser.forward()

@@ -8,12 +8,12 @@ class WebElement:
         self.locator = locator
 
     def click(self):
-       self.find_element().click()
+       self.find_element(By.CSS_SELECTOR, self.locator).click()
 
-    def find_element(self, locator):
+    def find_element(self):
         return self.driver.find_element(By.CSS_SELECTOR, self.locator)
 
-    def find_elements(self, locator):
+    def find_elements(self):
         return self.driver.find_elements(By.CSS_SELECTOR, self.locator)
     def exist(self):
         try:
