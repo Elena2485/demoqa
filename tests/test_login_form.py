@@ -18,6 +18,9 @@ def test_login_form(browser):
     assert form_page.modal_dialog.exist()
     form_page.btn_close_modal.click_force()
     form_page.hobbies('1', '0', '1')
-    form_page.current_adress('Санкт-Петербург')
-    form_page.state.click()
-    find_element().send_keys(Keys.ARROW_DOWN)
+    form_page.current_address('Санкт-Петербург')
+    form_page.state_city.click('')
+    form_page.state_city.click_force()
+    form_page.state_city.send_keys(Keys.ARROW_DOWN)
+    form_page.state_city.send_keys(Keys.ENTER)
+

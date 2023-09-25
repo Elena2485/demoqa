@@ -1,6 +1,10 @@
 from pages.elements_page import ElementsPage
 from pages.demoqa_page import Demoqa
+
+from conftest import browser
+from selenium import webdriver
 import time
+
 def test_check_size(browser):
     demo_qa_page = Demoqa(browser)
     demo_qa_page.visit()

@@ -10,5 +10,3 @@ def test_clear(browser):
     time.sleep(2)
     assert text_box_page.full_name.get_text() == ''
 
-
- #

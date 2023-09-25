@@ -9,7 +9,7 @@ class WebElement:
         self.locator = locator
 
     def click(self):
-       self.find_element(By.CSS_SELECTOR, self.locator).click()
+       self.driver.find_element(By.CSS_SELECTOR, self.locator).click()
 
     def find_element(self):
         return self.driver.find_element(By.CSS_SELECTOR, self.locator)
@@ -19,7 +19,7 @@ class WebElement:
 
     def exist(self):
         try:
-            self.find_element()
+            self.driver.find_element()
         except NoSuchElementException:
             return False
         return True
@@ -27,17 +27,17 @@ class WebElement:
     def exist_icon(self):
         try:
             #self.icon.find_element()
-            self.find_element()
+            self.driver.find_element()
         except NoSuchElementException:
             return False
         return True
 
     def visible(self):
-        return self.find_element.is_displayed()
+        return self.driver.find_element.is_displayed()
 
     #######################
     def not_visible(self):
-        return self.find_element.btn_sidebar_first_checkbox()
+        return self.driver.find_element.btn_sidebar_first_checkbox()
 
     #################
     def check_count_elements(self, count: int) -> bool:
@@ -55,3 +55,4 @@ class WebElement:
         self.find_element().send_keys(Keys.CONTROL + 'a')
         self.find_element().send_keys(Keys.DELETE)
         self.find_element().send_keys(Keys.ARROW_DOWN)
+        self.find_element().send_keys(Keys.ENTER)

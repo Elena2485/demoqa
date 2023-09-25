@@ -16,4 +16,5 @@ class FormPage(BasePage):
         self.btn_close_modal = WebElement(driver, '#closeLargeMadal')
         self.hobbies = WebElement(driver, '#hobbies-chekbox-1')
         self.current_address = WebElement(driver, '#currentAddress')
-        self.state = WebElement(driver, '#state')
+        self.state_city = WebElement(driver, '#stateCity')
+
