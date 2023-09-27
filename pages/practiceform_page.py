@@ -9,3 +9,4 @@ class PracticeFormPage(BasePage):
         self.first_name = WebElement(driver, '#firstName')
         self.last_name = WebElement(driver, '#lastName')
         self.user_email = WebElement(driver, '#userEmail')
+        self.btn_submit = WebElement(driver, '# submit')
