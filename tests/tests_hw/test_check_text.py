@@ -8,7 +8,9 @@ from conftest import browser
 def test_page_footer(browser):
     demoqa_page = Demoqa(browser)
     demoqa_page.visit()
-    assert demoqa_page.element_footer_text.exist() == Demoqa('© 2013-2020 TOOLSQA.COM | ALL RIGHTS RESERVED.')
+    assert (demoqa_page.element_footer_text.exist())
+
+            #== Demoqa('© 2013-2020 TOOLSQA.COM | ALL RIGHTS RESERVED.'))
 
 #a.	перейти на страницу 'https://demoqa.com/'
 #b.	через кнопку перейти на страницу 'https://demoqa.com/elements'

@@ -1,7 +1,7 @@
 from pages.elements_page import ElementsPage
 from pages.demoqa_page import Demoqa
 
-from conftest import browser
+#from conftest import browser
 from selenium import webdriver
 import time
 
@@ -15,6 +15,7 @@ def test_check_size(browser):
 #################
 def test_visible_nav_bar(browser):
     elements = ElementsPage(browser)
+
     elements.visit()
     assert not elements.nav_bar.visible()
     browser.set_window_size(767, 1000)

@@ -1,6 +1,7 @@
 from pages.form_page import FormPage
 from conftest import browser
 import time
+
 def test_login_form(browser):
     form_page = FormPage(browser)
 
@@ -19,8 +20,12 @@ def test_login_form(browser):
     form_page.btn_close_modal.click_force()
     form_page.hobbies('1', '0', '1')
     form_page.current_address('Санкт-Петербург')
-    form_page.state_city.click('')
+
+ def test_state(browser):
+    form_page = FormPage(browser)
+    form_page.visit()
+    time.sleep(5)
+    form_page.state_city.find_element()
     form_page.state_city.click_force()
     form_page.state_city.send_keys(Keys.ARROW_DOWN)
     form_page.state_city.send_keys(Keys.ENTER)
-

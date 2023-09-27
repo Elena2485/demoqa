@@ -18,9 +18,3 @@ class Demoqa(BasePage):
         self.btn_elements = WebElement(locator)
         self.element_footer_text = WebElement(locator)
 
-##  def equal_url(self): (убираем в родительский класс)
-##        if self.get_url() == 'https://demoqa.com/': (заменяем на строка ниже)
-##       if self.get_url() == self.base_url:
-##            return True
-##       return False
-

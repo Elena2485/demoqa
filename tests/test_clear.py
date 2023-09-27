@@ -1,5 +1,5 @@
 import time
-from pages.text_box import TextBox
+from pages.text_box_page import TextBox
 
 def test_clear(browser):
     text_box_page = TextBox(browser)
