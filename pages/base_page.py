@@ -1,6 +1,8 @@
 #from selenium.webdriver.common.by import By
-#import time
+
 import  logging
+import requests
+
 class BasePage:
     def __init__(self, driver, base_url, metaView):
         self.driver = driver
@@ -40,3 +42,6 @@ class BasePage:
             return False
 
 
+    def code_status(self):
+        resp = requests.get(self.base_url)
+        return resp.status_code == 200
