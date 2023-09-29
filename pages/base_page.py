@@ -1,11 +1,11 @@
 #from selenium.webdriver.common.by import By
 #import time
-
+import  logging
 class BasePage:
-    def __init__(self, driver, base_url):
+    def __init__(self, driver, base_url, metaView):
         self.driver = driver
         self.base_url = base_url  #'https://demoqa.com/'
-
+        self.metaView = metaView
     def visit(self):
         return self.driver.get(self.base_url)
     def back(self):
@@ -31,4 +31,12 @@ class BasePage:
         if self.get_url() == self.base_url:
             return True
         return False
+
+    def alert(self):
+        try:
+            return self.driver.switch_to.alert
+        except Exception as ex:
+            logging.log(1, ex)
+            return False
+
 

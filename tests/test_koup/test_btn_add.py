@@ -1,12 +1,12 @@
 from components.components import WebElement
-from pages.koup import Koup
+from pages.koup import koup
 from pages.koup_add import KoupAdd
 
 def test_koup_add(browser):
-    koup = Koup(browser)
+    koup = koup(browser)
     koup_add  = KoupAdd(browser)
     koup.visit()
-    assert koup.link_add.get_text() = ('Add/Remove Elememts')
+    assert koup.link_add.get_text() == 'Add/Remove Elememts'
     koup.link_add.click()
     assert koup_add.equal_url()
 
@@ -26,9 +26,9 @@ def test_koup_add(browser):
     # проверка для всех элементов
 #    for element in koup_add_page.btns_delete.find_elements()
 #  When Кликнуть на каждую кнопку Delete""
-while koup_add.btns_delete.exist():
-    koup_add.btns_delete.click()
-assert not koup_add.btns_delete.exist()
+# while koup_add.btns_delete.exist():
+#     koup_add.btns_delete.click()
+# assert not koup_add.btns_delete.exist()
 
 
 

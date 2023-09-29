@@ -4,10 +4,11 @@ from selenium.common.exceptions import NoSuchElementException #исключен�
 from selenium.webdriver.common.keys import Keys
 
 class WebElement:
-    def __init__(self, driver, locator='', locator_type = 'css'):
+    def __init__(self, driver, locator='', locator_type = 'css', head_meta = 'head > meta'):
         self.driver = driver
         self.locator = locator
         self.locator_type = locator_type
+        self.head_meta = head_meta
 
     def click(self):
         return self.driver.find_element(By.CSS_SELECTOR, self.locator).click()
@@ -90,5 +91,6 @@ class WebElement:
         else:
             print('Locator type ' + (self.locator_type) + ' not correct')
 
-        def check_css(self, style, value= ''):
-            return self.find_element().value_of_css_property(style) == value
+    def check_css(self, style, value= ''):
+        return self.find_element().value_of_css_property(style) == value
+
