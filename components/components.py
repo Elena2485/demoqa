@@ -31,7 +31,6 @@ class WebElement:
 
     def exist_icon(self):
         try:
-            #self.driver.find_element()
             self.find_element()
         except NoSuchElementException:
             return False
@@ -98,8 +97,11 @@ class WebElement:
             print('Locator type ' + (self.locator_type) + ' not correct')
         return False
 
-    def check_css(self, style, value= ''):
+ #   def check_css(self, style, value=''):
+ #       return self.find_element().value_of_css_property(style) == value
+
+    def check_css_new(self, style, value=''):
         return self.find_element().value_of_css_property(style) == value
 
-    def get_text(self):
-        return str(self.find_element().text)
+
+

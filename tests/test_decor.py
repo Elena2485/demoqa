@@ -15,19 +15,19 @@ def test_decor_3(browser):
 
 #@pytest.mark.skipif(True, reason='просто пропуск')
 
-def test_decor_4(browser):
+def test_decor_1(browser):
     radio = RadioButton(browser)
     if not radio.code_status():
         pytest.skip(reason=f'Страница {radio.base_url} недоступна')
-    radio.visit()
 
-    radio.btn_yes_radio.click_force()
+    radio.visit()
+    radio.yes_radio.click_force()
     assert radio.text.get_text() == 'Yes have selected Yes'
 
-    radio.btn_impressive_radio.click_force()
+    radio.impressive_radio.click_force()
     assert radio.text.get_text == 'You have selected Impressive'
 
-    assert 'disabled' in radio.btn_no_radio.get_dom_attribute('class')
+    assert 'disabled' in radio.no_radio.get_dom_attribute('class')
 
 
 

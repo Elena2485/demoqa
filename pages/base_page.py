@@ -1,4 +1,5 @@
 #from selenium.webdriver.common.by import By
+
 from components.components import WebElement
 import logging
 import requests
@@ -26,13 +27,12 @@ class BasePage:
     def get_url(self):
         return self.driver.current_url
 
+
     def get_title(self):
         return self.driver.title
 
     def equal_url(self):
-        if self.get_url() == self.base_url:
-            return True
-        return False
+        return self.get_url() == self.base_url
 
     def alert(self):
         try:
@@ -41,7 +41,11 @@ class BasePage:
             logging.log(1, ex)
             return False
 
-
     def code_status(self):
         resp = requests.get(self.base_url)
         return resp.status_code == 200
+
+
+
+
+
