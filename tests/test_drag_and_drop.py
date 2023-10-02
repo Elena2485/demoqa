@@ -1,7 +1,7 @@
-
+from conftest import browser
 from pages.droppable import Droppable
 from selenium.webdriver import ActionChains
-from conftest import browser
+
 import time
 
 def test_drag_and_drop(browser):

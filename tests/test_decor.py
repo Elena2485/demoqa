@@ -2,8 +2,8 @@
 from conftest import browser
 from pages.demoqa_page import Demoqa
 from pages.radio_button import RadioButton
-
-@pytest.mark.skip
+import pytest
+# @pytest.mark.skip
 def test_decor_3(browser):
     demo = Demoqa(browser)
     demo.visit()

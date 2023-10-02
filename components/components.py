@@ -3,18 +3,21 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException #исключения прописываем, чтобы можно было вылавливать..
 from selenium.webdriver.common.keys import Keys
 
+
 class WebElement:
-    def __init__(self, driver, locator='', locator_type = 'css', head_meta = 'head > meta'):
+    def __init__(self, driver, locator='', locator_type = 'css'):
         self.driver = driver
         self.locator = locator
         self.locator_type = locator_type
-        self.head_meta = head_meta
+
 
     def click(self):
-        return self.driver.find_element(By.CSS_SELECTOR, self.locator).click()
+       # return self.driver.find_element(By.CSS_SELECTOR, self.locator).click()
+        self.driver.find_element().click()
 
     def find_element(self):
-        return self.driver.find_element(self.get_by_type(), self.locator)
+        #return self.driver.find_element(self.get_by_type(), self.locator)
+        self.driver.find_element(self.get_by_type(), self.locator)
 
     def find_elements(self):
         return self.driver.find_elements(self.get_by_type(), self.locator)
@@ -28,14 +31,17 @@ class WebElement:
 
     def exist_icon(self):
         try:
-            #self.icon.find_element()
-            self.driver.find_element()
+            #self.driver.find_element()
+            self.find_element()
         except NoSuchElementException:
             return False
         return True
 
+    def get_text(self):
+        return str(self.find_element().text)
+
     def visible(self):
-        return self.driver.find_element.is_displayed()
+        return self.find_element.is_displayed()
 
     #######################
     def not_visible(self):
@@ -43,22 +49,25 @@ class WebElement:
 
     #################
     def check_count_elements(self, count: int) -> bool:
-        if len(self.find_element()) == count:
+        if len(self.find_elements()) == count:
             return True
         return False
     ######################
     def send_keys(self, text: str):
-        return self.find_element().send_keys(text)
+        #return self.find_element().send_keys(text)
+        self.find_element().send_keys(text)
 
     def click_force(self):
         self.driver.execute_script("arguments[0].click();", self.find_element())
 
+    def enter(self):
+        self.find_element().send_keys(Keys.ENTER)
+    def arrow_down(self):
+        self.find_element().send_keys(Keys.ARROW_DOWN)
+
     def clear(self):
         self.find_element().send_keys(Keys.CONTROL + 'a')
         self.find_element().send_keys(Keys.DELETE)
-        self.find_element().send_keys(Keys.ARROW_DOWN)
-        self.find_element().send_keys(Keys.ENTER)
-
 
     def get_dom_attribute(self, name: str):
         value = self.find_element().get_dom_attribute(name)
@@ -70,10 +79,7 @@ class WebElement:
         return True
 
     def scroll_to_element(self):
-        self.driver.execute_script(
-            'window.scrollTo(0, document.body.scrollHeight);',
-            self.find_element()
-        )
+        self.driver.execute_script('window.scrollTo(0, document.body.scrollHeight);', self.find_element())
 
     def get_by_type(self):
         if self.locator_type == 'id':
@@ -90,7 +96,10 @@ class WebElement:
             return By.LINK_TEXT
         else:
             print('Locator type ' + (self.locator_type) + ' not correct')
+        return False
 
     def check_css(self, style, value= ''):
         return self.find_element().value_of_css_property(style) == value
 
+    def get_text(self):
+        return str(self.find_element().text)

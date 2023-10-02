@@ -6,6 +6,6 @@ class Checkbox(BasePage):
         self.base_url = 'https://demoqa.com/checkbox'
         super().__init__(driver, self.base_url)
 
-        self.checkbox = WebElement(driver, 'span.rct-text')
-        self.btn_expand_all = WebElement(driver, '.rct-icon-expand-all')
-        self.btn_sidebar_first_checkbox = WebElement(driver, '')
+        self.checkbox_all = WebElement(driver, 'span.rct-text')
+        self.btn_plus = WebElement(driver, '.rct-icon-expand-all')
+

@@ -10,3 +10,4 @@ def test_tables(browser):
  #   удаление всех записей
 
     while page_tables.btn
+

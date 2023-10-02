@@ -6,19 +6,16 @@ class ElementsPage(BasePage):
         self.base_url = 'https://demoqa.com/elements'
         super().__init__(driver, self.base_url)
 
-        self.get_text = WebElement(driver, '#app > div > div > div.home-body > div > div:nth-child(1)')
+        self.text = WebElement(driver, '.main-header')
+        self.icon = WebElement(driver, '#app > header > a')
         self.btn_elements = WebElement(driver, 'div.playgound - header > div')
         self.nav_bar = WebElement(driver, 'div > nav')
-        self.btn_sidebar_first = WebElement(driver, '')
-        self.btn_sidebar_first_textbox = WebElement(driver, '')
-        self.text_elements = WebElement(driver, '')
-        self.btn_sidebar = WebElement('')
-        self.glock_menu = WebElement(driver, 'div.row > div:nth-child(1)')
-
-    def equal_url(self):
-        if self.get_url() == self.base_url:
-            return True
-        return False
+        self.btn_sidebar_first = WebElement(driver, 'div:nth-child(1) > span > div')
+        self.btn_sidebar_first_textbox = WebElement(driver, 'div:nth-child(1) > div > ul > #item-0 > span')
+        self.text_center = WebElement(driver, 'div.col-12:nth-child(2)')
+        self.btn_sidebar_first_checkbox = WebElement('div:nth-child(1) > div > ul > #item-1 > span')
+        self.test_loc = WebElement(driver, 'div:nth-child(1) > div > ul > li')
+        self.block_menu = WebElement(driver, 'div.row > div:nth-child(1)')
 
 
 
